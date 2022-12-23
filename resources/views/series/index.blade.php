@@ -1,20 +1,30 @@
-@extends('layout')
-
-@section('cabecalho')
-Séries
-@endsection
+<x-layout title="Séries">
 
 
-@section('conteudo')
+<a href="/series/create" class="btn mb-2">Adicionar</a>
 
-        <a href="/series/criar" class="btn mb-2">Adicionar</a>
+<ul class="list-group">
+    @foreach ($series as $serie)
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ $serie->nome }} 
 
-        <ul class="list-group">
-            <li class="list-group-item">aasodkaosp</li>
-            <li class="list-group-item">aasodkaosp</li>
-            <li class="list-group-item">aasodkaosp</li>
-        </ul>
-@endsection
+         <form method="post" action="{{ route('series.destroy', $serie->id) }}" >  
+            @csrf
+            @method('delete')
+
+            <button class="btn-danger brn-sm">X</button>
+        </form>   
+
+        </li> 
+    @endforeach
+    
+
+</ul>
+
+</x-layout>
+
+
+
 
 
 

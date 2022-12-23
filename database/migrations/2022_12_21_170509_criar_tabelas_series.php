@@ -13,7 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('series', function (Blueprint $table){
+            $table->id();
+            $table->string('nome', 123);
+
+            
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('series');
     }
 };

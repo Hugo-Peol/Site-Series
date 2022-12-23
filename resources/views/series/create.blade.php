@@ -1,21 +1,14 @@
-@extends('layout')
+<x-layout title="Nova Série">
 
-@section('cabecalho')
-Adicionar Série
-@endsection
+        <form action="{{ route('series.store') }}" method="post">
+            @csrf
 
-@section('conteudo')
-
-        <form action="" method="get">
-            <div class="form-group">
-                <label for="nome">Nome</label>
+            <div class="form-group mb-3">
+                <label for="nome" class="form-label">Nome:</label>
                 <input type="text" name="nome" id=nome class="form-control">
             </div>
+            <button type="submit" class="btn btn-primary mt-2">Adicionar</button>
         </form>
+        
 
-        <button class="btn btn-primary mt-2">Adicionar</button>
-
-    </div>
-
-@endsection
-
+</x-layout>
